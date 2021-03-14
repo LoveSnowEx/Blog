@@ -10,10 +10,6 @@ class User(db.Document):
     email = db.StringField(max_length=255, unique=True)
     username = db.StringField(max_length=255)
     password = db.StringField(max_length=255)
-    meta = {
-        'indexes': ['-created_at', 'email'],
-        'ordering': ['-created_at', 'tags'],
-    }
 
     @classmethod
     def loginVerify(cls, email, password):
